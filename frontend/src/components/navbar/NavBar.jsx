@@ -1,5 +1,6 @@
 import React from "react";
-import { FaHome, FaUser, FaCloudUploadAlt, FaImages } from "react-icons/fa";
+import { FaHome, FaCloudUploadAlt, FaImages } from "react-icons/fa";
+import UploadModal from "../modals/UploadModal";
 const NavBar = () => {
   return (
     <nav className="bg-main flex justify-between  text-xl font-medium text-white">
@@ -16,11 +17,6 @@ const NavBar = () => {
       </div>
       <ul className="hidden md:flex md:justify-around" style={{ flex: 1 }}>
         <li className="flex items-center">
-          <button className="rounded-md bg-slate-50 px-4 py-1 text-black">
-            LOGIN
-          </button>
-        </li>
-        <li className="flex items-center">
           <FaHome className="mr-2 text-xl" />
           Home
         </li>
@@ -28,14 +24,7 @@ const NavBar = () => {
           <FaImages className="mr-2 text-xl" />
           Gif's
         </li>
-        <li className="flex items-center">
-          <FaUser className="mr-2 text-xl" />
-          Profile
-        </li>
-        <li className="flex items-center">
-          <FaCloudUploadAlt className="mr-2 text-xl" />
-          Upload
-        </li>
+        <UploadModal />
       </ul>
     </nav>
   );
