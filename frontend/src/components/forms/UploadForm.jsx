@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 const UploadForm = () => {
+  const [imagePreview, setImagePreview] = useState(null);
+  const handlePreview = (e) => {
+    const imageFileURL = URL.createObjectURL(e.target.files[0]);
+    setImagePreview(imageFileURL);
+  };
   return (
     <>
       <form action="" className="w-full">
@@ -8,11 +13,21 @@ const UploadForm = () => {
         <div className="flex ">
           {/* //! IMG DIV */}
           <div className="flex flex-1 flex-col  ">
-            <label htmlFor="gif" className="flex h-fit justify-center">
-              <div className="h-52 w-52 rounded-full bg-gray-500"></div>
+            <label htmlFor="gifImage" className="flex h-fit justify-center">
+              {imagePreview ? (
+                <img src={imagePreview} className="h-52 w-52 rounded-full" />
+              ) : (
+                <div className="h-52 w-52 rounded-full bg-gray-500"></div>
+              )}
             </label>
             <h2 className="mt-5 text-center">Choose your GIF 👻</h2>
-            <input type="file" name="gif" className="hidden" id="gif" />
+            <input
+              type="file"
+              name="gifImage"
+              className="hidden"
+              id="gifImage"
+              onChange={handlePreview}
+            />
           </div>
           {/* //!CONTENT DIV */}
           <div style={{ flex: 2 }} className="flex flex-col px-12">
