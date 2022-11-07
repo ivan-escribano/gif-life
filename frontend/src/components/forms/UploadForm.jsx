@@ -28,7 +28,7 @@ const UploadForm = ({ setShowModal }) => {
   };
   return (
     <>
-      <form className="w-full" onSubmit={handleSubmit}>
+      <form className="w-full pt-16 md:pt-0" onSubmit={handleSubmit}>
         {/* //!GENERAL DIV */}
         <div className="flex flex-col md:flex-row">
           {/* //! IMG DIV */}
