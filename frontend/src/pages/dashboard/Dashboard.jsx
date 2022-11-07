@@ -29,6 +29,7 @@ const Dashboard = () => {
           <GifCards
             key={gif._id}
             id={gif._id}
+            description={gif.description}
             gifImage={gif.gifImage}
             title={gif.title}
             gifType={gif.gifType}
@@ -62,7 +63,7 @@ const Dashboard = () => {
           <h2 className="text-xl">Search:</h2>
           <input
             type="text"
-            className="border"
+            className="rounded-md border"
             onChange={(e) => setFilterName(e.target.value)}
             value={filterName}
           />
@@ -70,7 +71,7 @@ const Dashboard = () => {
         <div>
           <h2 className="text-xl">Type</h2>
           <select
-            className="border"
+            className="rounded-md border "
             value={filterLabel}
             onChange={(e) => setFilterLabel(e.target.value)}
           >
