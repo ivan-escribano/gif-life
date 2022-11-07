@@ -16,7 +16,8 @@ app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(helmet());
 app.use(
   cors({
-    origin: "*",
+    credentials: true,
+    origin: "http://127.0.0.1:5173",
   })
 );
 

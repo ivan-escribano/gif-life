@@ -1,6 +1,8 @@
 import React from "react";
-import { FaHome, FaCloudUploadAlt, FaImages } from "react-icons/fa";
+import { FaHome, FaImages } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import UploadModal from "../modals/UploadModal";
+import NavBarMobile from "./NavBarMobile";
 const NavBar = () => {
   return (
     <nav className="bg-main flex justify-between  text-xl font-medium text-white">
@@ -11,19 +13,19 @@ const NavBar = () => {
           className="w-20"
         />
         <p className="text-2xl">
-          {" "}
           Gif <span className="font-bold text-orange-600">Life</span>{" "}
         </p>
       </div>
+      <NavBarMobile></NavBarMobile>
       <ul className="hidden md:flex md:justify-around" style={{ flex: 1 }}>
-        <li className="flex items-center">
+        <Link to={"/home"} className="flex items-center">
           <FaHome className="mr-2 text-xl" />
           Home
-        </li>
-        <li className="flex items-center">
+        </Link>
+        <Link to={"/dashboard"} className="flex items-center">
           <FaImages className="mr-2 text-xl" />
           Gif's
-        </li>
+        </Link>
         <UploadModal />
       </ul>
     </nav>

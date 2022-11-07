@@ -1,21 +1,26 @@
 import React from "react";
+import GifHashTag from "./GifHashTag";
+import { v4 as uuidv4 } from "uuid";
 
-const GifCards = () => {
+const GifCards = ({ gifImage, title, gifType }) => {
   return (
     <div className="my-5 rounded-md border-2 py-4 px-3">
       <div className="card-img ">
-        <img
-          src="https://media1.giphy.com/media/gd09Y2Ptu7gsiPVUrv/giphy.gif"
-          alt="Gif image"
-        />
+        <img src={gifImage} alt="Gif image" className="w-full" />
       </div>
       <div className="card-content">
-        <h2 className="mt-4 text-2xl">Sponge Bob my g</h2>
         <div className="card-info mt-4 flex justify-between">
-          <p className="text-lg">@ivanescribano</p>
-          <button className="bg-main rounded-md px-4 py-1 text-lg font-medium text-white">
-            Save
-          </button>
+          <h2 className=" text-2xl">{title}</h2>
+          <div>
+            <button className="bg-main rounded-md px-4 py-1 text-lg font-medium text-white">
+              Share
+            </button>
+          </div>
+        </div>
+        <div className="mt-3 flex text-lg">
+          {gifType.map((type) => {
+            return <GifHashTag type={type} key={uuidv4()} />;
+          })}
         </div>
       </div>
     </div>

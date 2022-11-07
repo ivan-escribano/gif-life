@@ -11,7 +11,7 @@ const getAllGifs = async (req, res) => {
 
 const postGif = async (req, res) => {
   try {
-    const { title, description } = req.body;
+    const { title, description, gifType } = req.body;
     if (!req.file) {
       return res.status(400).send("File it's not defined");
     }
@@ -20,10 +20,12 @@ const postGif = async (req, res) => {
       title,
       description,
       gifImage,
+      gifType,
     });
     return res.status(200).send("Gif created successfully");
   } catch (error) {
-    return res.status(400).send("Something went wrong!! try later");
+    console.log(error);
+    return res.status(400).send(error);
   }
 };
 

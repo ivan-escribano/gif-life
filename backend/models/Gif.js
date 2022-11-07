@@ -13,6 +13,7 @@ const gifSchema = new mongoose.Schema({
     type: String,
     required: [true, "Image of gif is required"],
   },
+  gifType: [{ type: String, required: [true, "Type is required"] }],
 });
 
 module.exports = mongoose.model("Gif", gifSchema);
