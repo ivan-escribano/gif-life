@@ -17,10 +17,14 @@ app.use(helmet());
 app.use(
   cors({
     credentials: true,
-    origin: "http://127.0.0.1:5173",
+    origin: process.env.CLIENT_URL,
   })
 );
 
+
+app.get("/", (req, res, next) => {
+  res.status(200).send("Welcome to Gif life API 🥳");
+});
 //!ROUTES
 const gifsRoutes = require("./routes/gifsRoutes");
 app.use("/gifs", gifsRoutes);
