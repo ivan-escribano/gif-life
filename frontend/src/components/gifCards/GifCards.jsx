@@ -26,7 +26,7 @@ const GifCards = ({ gifImage, title, gifType, description }) => {
             </button>
           </div>
         </div>
-        <div className="mt-3 flex text-lg">
+        <div className="mt-3 flex overflow-auto text-lg">
           {gifType.map((type) => {
             return <GifHashTag type={type} key={uuidv4()} />;
           })}
