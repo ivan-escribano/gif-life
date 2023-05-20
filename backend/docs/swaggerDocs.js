@@ -15,7 +15,6 @@ const options = {
   "servers": [
     {
       "url": process.env.SERVER_URL,
-      "description": "Local server"
     }
   ],
   "paths": {
