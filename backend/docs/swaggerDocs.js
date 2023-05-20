@@ -1,3 +1,4 @@
+
 const options = {
   "openapi": "3.0.0",
   "info": {
@@ -13,7 +14,7 @@ const options = {
   ],
   "servers": [
     {
-      "url": "http://localhost:5000",
+      "url": process.env.SERVER_URL,
       "description": "Local server"
     }
   ],
