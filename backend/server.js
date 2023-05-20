@@ -15,6 +15,7 @@ const connect = require("./config/db");
 connect();
 
 //!MIDDLEWARE
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 app.use(helmet());
@@ -30,14 +31,9 @@ app.use(
 app.get("/", (req, res, next) => {
   res.status(200).send("Welcome to Gif life API 🥳");
 });
-
-//!SWAGGER ENDPOINT
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
-
 //!ROUTES
 const gifsRoutes = require("./routes/gifsRoutes");
 app.use("/gifs", gifsRoutes);
-
 //!PORT TO LISTEN
 app.listen(process.env.PORT, () => {
   console.log(`App express is running in port: ${process.env.PORT}`);
