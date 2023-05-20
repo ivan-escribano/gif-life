@@ -15,12 +15,6 @@ const connect = require("./config/db");
 connect();
 
 //!MIDDLEWARE
-// serve static files
-app.use(express.static(__dirname));
-app.use('*.css', (req, res, next) => {
-  res.set('Content-Type', 'text/css');
-  next();
-});
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
