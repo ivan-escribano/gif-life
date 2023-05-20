@@ -29,7 +29,7 @@ app.use(
 
 //!WELCOME MESSAGE
 app.get("/", (req, res, next) => {
-  res.status(200).send("Welcome to Gif life API 🥳");
+  res.status(200).send("Welcome to Gif life API test 🥳");
 });
 //!ROUTES
 const gifsRoutes = require("./routes/gifsRoutes");
