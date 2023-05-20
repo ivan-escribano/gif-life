@@ -6,10 +6,14 @@ const express = require("express");
 const app = express();
 const helmet = require("helmet");
 const cors = require("cors");
+const swaggerUi = require('swagger-ui-express');
+const specs = require('./services/swagger');
+
 
 //!CONNECTION DB
 const connect = require("./config/db");
 connect();
+
 //!MIDDLEWARE
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
@@ -22,9 +26,14 @@ app.use(
 );
 
 
+//!WELCOME MESSAGE
 app.get("/", (req, res, next) => {
   res.status(200).send("Welcome to Gif life API 🥳");
 });
+
+//!SWAGGER ENDPOINT
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+
 //!ROUTES
 const gifsRoutes = require("./routes/gifsRoutes");
 app.use("/gifs", gifsRoutes);
