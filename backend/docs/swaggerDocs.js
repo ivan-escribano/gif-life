@@ -34,7 +34,7 @@ const options = {
       },
       "post": {
         "summary": "Create a user",
-        "tags": ["Users"],
+        "tags": ["GIFS"],
         "requestBody": {
           "required": true,
           "content": {
